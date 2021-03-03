@@ -28,13 +28,13 @@ int main()
 
 	FILE *fp = fopen("C:/Users/MINIMO/Desktop/test.txt", "r");
 	if (!fp) {
-		printf("file open failed");
-		return 0;
+	    printf("file open failed");
+	    return 0;
 	}
 	char str[256];
 	while (fscanf(fp, "%s", str) != EOF) {
-		//DO THE SHIT
-		wordsCounter(str, head);
+	    //DO THE SHIT
+            wordsCounter(str, head);
 	}
 
 	printTheStastics(head);
@@ -53,14 +53,14 @@ void initLinkList(LinkList*& head) {
 
 bool destroyLinkList(LinkList* head) {
 	if (head == NULL) {
-		return false;
+	    return false;
 	}
 	LinkListNode* cur = head;
 	LinkListNode* next = cur->next;
 	while (!next) {
-		cur = next;
-		next = cur->next;
-		free(cur);
+	    cur = next;
+	    next = cur->next;
+	    free(cur);
 	}
 	free(head);
 	return true;
@@ -70,7 +70,7 @@ void addNodeToLinkList(LinkListNode* node, LinkList* head) {
 	LinkListNode* temp;
 	temp = head;
 	while (temp->next != NULL) {
-		temp = temp->next;
+	    temp = temp->next;
 	}
 	temp->next = node;
 	node->next = NULL;
@@ -91,27 +91,27 @@ void wordsCounter(char* str, LinkList* head) {
 	LinkListNode* travelNode = head->next;
 	bool isHadTheWord = false;
 	while (travelNode) {
-		if (strcmp(str, travelNode->data.str) == 0) {
-			isHadTheWord = true;
-			travelNode->data.count++;
-			break;
-		}
-		travelNode = travelNode->next;
+	    if (strcmp(str, travelNode->data.str) == 0) {
+		isHadTheWord = true;
+		travelNode->data.count++;
+		break;
+	    }
+	    travelNode = travelNode->next;
 	}
 	if (!isHadTheWord) {
-		addWordToLinkList(str, head);
+	    addWordToLinkList(str, head);
 	}
 }
 
 void printTheStastics(LinkList* head) {
 	//show the stastics of the words counter
 	if (!head) {
-		return;
+	    return;
 	}
 	LinkListNode* travelNode = head->next;
 	while (travelNode) {
-		printf("%s     counts:%d\n", travelNode->data.str, travelNode->data.count);
-		travelNode = travelNode->next;
+	    printf("%s     counts:%d\n", travelNode->data.str, travelNode->data.count);
+	    travelNode = travelNode->next;
 	}
 }
 

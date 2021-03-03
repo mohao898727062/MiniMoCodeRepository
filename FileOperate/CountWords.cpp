@@ -106,7 +106,7 @@ void wordsCounter(char* str, LinkList* head) {
 void printTheStastics(LinkList* head) {
 	//show the stastics of the words counter
 	if (!head) {
-	    return;
+	    return; 
 	}
 	LinkListNode* travelNode = head->next;
 	while (travelNode) {

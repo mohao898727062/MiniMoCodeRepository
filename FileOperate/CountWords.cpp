@@ -34,7 +34,7 @@ int main()
 	char str[256];
 	while (fscanf(fp, "%s", str) != EOF) {
 	    //DO THE SHIT
-            wordsCounter(str, head);
+        wordsCounter(str, head);
 	}
 
 	printTheStastics(head);
@@ -111,7 +111,7 @@ void printTheStastics(LinkList* head) {
 	LinkListNode* travelNode = head->next;
 	while (travelNode) {
 	    printf("%s     counts:%d\n", travelNode->data.str, travelNode->data.count);
-	    travelNode = travelNode->next;
+	    travelNode = travelNode->next; 
 	}
 }
 

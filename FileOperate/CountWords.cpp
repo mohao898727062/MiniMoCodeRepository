@@ -1,15 +1,15 @@
-﻿#include <iostream>
+#include <iostream>
 #include<io.h>
 
 using namespace std;
 
 typedef struct {
-	char str[256];
-	int count;
+    char str[256];
+    int count;
 }CountNode;
 
 typedef struct node {
-	CountNode data;
+    CountNode data;
     node* next;
 }LinkList,LinkListNode;
 
